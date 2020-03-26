@@ -1,0 +1,259 @@
+body{
+	    background-color: #f0f0f0;
+	    margin: 0;
+	    -webkit-font-smoothing: subpixel-antialiased;
+	    transform: translateZ(0);
+	    backface-visibility: hidden;
+}
+
+.container{
+	/*width: 900px;*/
+	width: 90%;
+	height: 100vh;
+	margin:0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+	grid-template-rows: repeat(100,1fr);
+	grid-column-gap: 40px;
+	grid-row-gap: 10px;
+	position: relative;
+	
+}
+.box1{
+	grid-column: 1/-1;
+	grid-row: 1/2;
+	text-align: center;
+	margin-top: 30px;
+}
+.box2{
+	grid-column: 1/-1;
+	grid-row: 2/3;
+
+	width: 600px;
+
+	height: 130px;
+	background-color: white;
+	box-shadow: 0px 5px 10px 1px grey;
+	border-radius: 10px;
+	text-align: center;
+	align-items: center;
+	margin: 30px auto;
+	position: relative;
+}
+.box2 input{
+ 	width: 80%; 
+	margin-top: 10px;
+	border:0; 
+	outline: 0; 
+ 	height: 30px;
+ 	font-size: 20px;
+ 	font-weight: 600;
+ 	font-family: monospace;
+ 	margin-bottom: 20px;
+ 	background-color: transparent;
+}
+.box2 textarea{
+	width: 80%; 
+	border: 0;
+	outline: 0;
+	height: 67%;
+	font-size: 18px;
+ 	font-weight: 500;
+ 	font-family: monospace;
+ 	display: none;
+ 	margin:0 auto;
+ 	
+}
+#sendData{
+	display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: absolute;
+    right: 18px;
+    bottom: -18px;
+    background: #42b883;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 24px;
+    line-height: 1;
+    text-align: center;
+    transition: all ease 0.1s;
+    border:0;
+    outline: 0;
+
+}
+#sendData:hover{
+	transform: scale(1.05);	
+	cursor: pointer;
+}
+#sendData:active{
+	transform: scale(0.9);
+}
+
+.box3{
+	width: 90%;
+	height: 220px;
+	background-color: white;
+	border-radius: 10px;
+	text-align: center;
+	align-items: center;
+	margin: 30px auto;
+	position: relative;
+	transition: all ease 0.3s;
+	box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+
+}
+.box3:hover{
+	box-shadow: 0px 5px 10px 1px grey;
+	transform: translateY(-8px);
+}
+.newPara{
+	font-family: monospace;
+	font-weight: 400;
+	font-size: 18px;
+	text-align: center;
+	margin:0px auto;
+	width:200px;
+    word-wrap: break-word;
+    height: 75%;
+    width: 75%;
+    border: none;
+    overflow: auto;
+    outline: none;
+    cursor: pointer;
+}
+
+.newHead{
+	font-size: 20px;
+ 	font-weight: 600;
+ 	font-family: monospace;
+	float: left;
+	margin-left: 16px;
+}
+.indexDate{
+	font-family: sans-serif;
+	font-weight: 300;
+	margin:0 auto;
+	position: absolute;
+	bottom:2%;
+	left:50%;
+	transform: translate(-50%);
+	font-size: 15px;
+	color: green;
+	overflow: hidden;
+
+}
+.newParad{
+	display: none;
+}
+
+
+.modal{
+  display: none; 
+  position: fixed;
+  left:0;
+  top: 0;
+  right: 0;
+  bottom: 0; 
+  z-index: 1;
+  width:100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.4); 
+  overflow: hidden;
+    
+}
+
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 35%;
+  height: 38%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+  overflow: hidden;
+}
+
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover
+{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.editImage{
+	float: right;
+	position: absolute;
+	top:10px;
+	width:40px;
+	right: 10px;
+	transition: all ease 0.2s;
+}
+.editImage:hover{
+	transform: scale(1.2);
+}
+
+#update-btn{
+	margin-bottom: 5px;
+	outline: 0;
+	border:none;
+	height: 40;
+	padding: 10px;
+	float: right;
+	font-weight: 600;
+	font-family: monospace;
+	font-size: 13px;
+	transition: all ease 0.3s;
+	border-radius: 10px;
+}
+
+#delete{
+	margin-bottom: 5px;
+	outline: 0;
+	border:none;
+	height: 40;
+	padding: 10px;
+	float: left;
+	font-weight: 600;
+	font-family: monospace;
+	font-size: 13px;
+	transition: all ease 0.3s;
+	border-radius: 10px;
+}
+#delete:hover,#update-btn:hover{
+	background-color: lightgrey;
+	cursor: pointer;
+}
+
+@media(max-width: 760px)
+{
+	.newPara{
+		margin-top: 55px;
+		height: 60%;
+		position: absolute;
+		left:10%;
+	}
+	.box2{
+		width: 100%;
+	}
+
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Take a note</title>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-database.js"></script>
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA_i9g2UC4VioOXB7eYK5Yyvw8nhz3gk0k",
+    authDomain: "keep-clone-6fc33.firebaseapp.com",
+    databaseURL: "https://keep-clone-6fc33.firebaseio.com",
+    projectId: "keep-clone-6fc33",
+    storageBucket: "keep-clone-6fc33.appspot.com",
+    messagingSenderId: "1018516553755",
+    appId: "1:1018516553755:web:66c962b2b4ff0752bab8be",
+    measurementId: "G-HE993L5C2F"
+  };
+  firebase.initializeApp(firebaseConfig);
+</script>
+	
+<script>
+		window.onload = ()=>{
+			document.getElementById('getData').click();
+		}	
+</script>
+</head>
+
+<body>
+
+	<div style="position: absolute; top:60%; left:50%; transform: translate(-60%,-50%);z-index: 999;">
+		<img id="lod" style="width: 200px;" src="loading.gif" alt="">
+	</div>
+	
+	<button id="myBtn" style="display: none;">Open Modal</button>
+	<!-- The Modal -->
+	<div id="myModal" class="modal">
+  		<!-- Modal content -->
+	  	<div class="modal-content">
+		    <span class="close">&times;</span>
+		    <textarea id="model-head" style="margin-top: 6px; position: fixed; height: 30px; width: 80%; font-family: monospace;border:0;outline: 0; font-weight: 700; font-size: 25px"></textarea>
+		    <textarea id="model-text" style="margin-top: 15px; width: 100%; height: 70%; font-size: 20px; border:0;outline: 0;"></textarea>
+		    <p id="model-date" style="display: none;"></p>
+		    <button id="update-btn" onclick="updateData()">Update</button>
+		    <button id="delete" onclick="deleteNode()">Delete</button>
+	  	</div>
+
+	</div>
+
+	<button type="" id="disp" onclick="disp()" style="display: none;">Disp</button>
+	<button id="getData" style="display: none;" onclick="getData()">getData</button>
+
+
+
+
+	
+	<div class="container" id="wrapper">
+		<div class="box1">
+			<img src="pic.jpg" atl="">
+		</div>
+
+		<div class="box2">
+			<input id="title"  type="text" name="" placeholder="Take a note..." onfocus="displayTextarea()">
+			<textarea id="area"  type="text" placeholder="Take a note..."></textarea>	
+			<button id="sendData" onclick="pushData()"><span>+</span></button>	
+		</div>
+
+								
+	</div>	
+	<script src="script.js"></script>
+	<script>
+	var modal = document.getElementById("myModal");			// whole modal
+	var btn = document.getElementById("myBtn");			//oprn btn
+	var span = document.getElementsByClassName("close")[0]; //close btn
+
+	btn.onclick = function() {
+  	modal.style.display = "block";	//to show modal
+  	 window.scrollTo(0, 0);
+  	  document.body.style.overflow = 'hidden';
+
+	}
+
+	span.onclick = function() {				
+	  modal.style.display = "none";				//to close modal
+	}
+
+
+	window.onclick = function(event) {     
+	  if (event.target == modal) {				//to hide modal
+	    modal.style.display = "none";
+		document.getElementById('area').style.display = 'none';
+		document.getElementById('title').placeholder = "Take a note...";
+		document.getElementsByClassName('box2')[0].style.height = '130px';
+		document.body.style.overflow = 'auto';
+	  }
+
+	}
+
+		document.getElementsByClassName('box1')[0].onclick = function(){
+		document.getElementById('area').style.display = 'none';
+		document.getElementById('title').placeholder = "Take a note...";
+		document.getElementsByClassName('box2')[0].style.height = '130px';
+	}
+
+</script>
+</body>
+</html>
